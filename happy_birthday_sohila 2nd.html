@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday Sohila</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Tahoma', 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ff9a9e, #fecfef, #f6d5f7);
+    background-size: 400% 400%;
+    animation: bgShift 12s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow-x: hidden;
+    position: relative;
+  }
+  @keyframes bgShift {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+  .balloon {
+    position: fixed;
+    bottom: -150px;
+    font-size: 3rem;
+    animation: floatUp linear infinite;
+    opacity: 0.9;
+    z-index: 0;
+  }
+  @keyframes floatUp {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-110vh) rotate(15deg); }
+  }
+  .card {
+    position: relative;
+    z-index: 2;
+    background: rgba(255,255,255,0.85);
+    border-radius: 30px;
+    padding: 40px 30px;
+    max-width: 480px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 20px 50px rgba(255, 105, 180, 0.4);
+    border: 4px solid #ffb6d5;
+  }
+  h1 {
+    color: #e0559a;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px 0 #fff, 4px 4px 8px rgba(224,85,154,0.3);
+  }
+  h2 {
+    color: #ff69b4;
+    font-size: 1.8rem;
+    margin-top: 0;
+  }
+  .emojis {
+    font-size: 2rem;
+    margin: 15px 0;
+    letter-spacing: 8px;
+  }
+  p.sub {
+    color: #a45a7a;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+  }
+  button {
+    background: linear-gradient(135deg, #ff6fa5, #ff9ec9);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255,105,180,0.5);
+    transition: transform 0.2s;
+  }
+  button:hover { transform: scale(1.07); }
+  .wish {
+    display: none;
+    margin-top: 25px;
+    background: #fff0f6;
+    border-radius: 20px;
+    padding: 20px;
+    color: #b3336b;
+    font-size: 1.15rem;
+    line-height: 1.9;
+    border: 2px dashed #ff9ec9;
+    animation: pop 0.5s ease;
+  }
+  @keyframes pop {
+    0% { transform: scale(0.7); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .wish.show { display: block; }
+  .signature {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #e0559a;
+  }
+  .sparkle {
+    position: absolute;
+    font-size: 1.5rem;
+    animation: twinkle 1.8s infinite ease-in-out;
+  }
+  @keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+  }
+</style>
+</head>
+<body>
+
+<div class="card">
+  <div class="emojis">🎀🎂🎈🎉🎈🎂🎀</div>
+  <h1>Happy Birthday</h1>
+  <h2>Sohila 💕</h2>
+  <p class="sub">يوم مميز لأحلى بنت ✨</p>
+  <button onclick="revealWish()">اضغطي هنا عشان تقري أمنيتي ليكي 💌</button>
+  <div class="wish" id="wishBox">
+    <span class="sparkle" style="top:-10px; left:10px;">✨</span>
+    كل سنة وانتي طيبة يا سهيلة 🎀<br><br>
+    يارب السنة دي تكون مليانة ضحك وفرح وحاجات حلوة كتير، وتتحقق كل أحلامك اللي في بالك ✨
+    وتفضلي دايمًا بالبسمة الحلوة دي اللي بتفرّح اللي حواليكي 💕
+    ربنا يحميكي ويسعدك ويكون دايمًا في ضهرك.<br><br>
+    بحبك أوي 🎂💖
+    <div class="signature">🎁 Happy Birthday 🎁</div>
+  </div>
+</div>
+
+<script>
+  function revealWish() {
+    document.getElementById('wishBox').classList.add('show');
+  }
+  const emojis = ['🎈','🎀','🎉','💗','✨'];
+  for (let i=0; i<15; i++){
+    const b = document.createElement('div');
+    b.className = 'balloon';
+    b.style.left = Math.random()*100 + 'vw';
+    b.style.animationDuration = (8 + Math.random()*8) + 's';
+    b.style.animationDelay = (Math.random()*8) + 's';
+    b.innerText = emojis[Math.floor(Math.random()*emojis.length)];
+    document.body.appendChild(b);
+  }
+</script>
+
+</body>
+</html>
